@@ -1,0 +1,22 @@
+{
+  "name": "linecrmapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "grunt-apidoc": "^0.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:teendoi-studio/aps_x.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/teendoi-studio/aps_x/issues"
+  },
+  "homepage": "https://gitlab.com/teendoi-studio/aps_x#readme"
+}
