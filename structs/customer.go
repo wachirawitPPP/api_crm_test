@@ -836,18 +836,18 @@ type AppointmentListHistory struct {
 
 // ---------------------- test ObjGetCustomerOnline-------------------------/-
 type ObjGetCustomerOnlineTest struct {
-	ID           int    `json:"id"`
-	CoCitizenId  string `json:"co_citizen_id"`
-	CoEmail      string `json:"co_email"`
-	CoFname      string `json:"co_fname"`
-	CoLname      string `json:"co_lname"`
-	Co_Line_id   string `json:"co_line_id"`
-	Co_Gender    string `json:"co_gender"`
-	Co_Birthdate string `json:"co_birthdate"`
-	Co_Address   string `json:"co_address"`
-	Co_Tel       string `json:"co_tel"`
-	Co_District  string `json:"co_district"`
-	Co_Province  string `json:"co_province"`
-	Co_Amphoe    string `json:"co_amphoe"`
-	Co_Zipcode   string `json:"co_zipcode"`
+	ID          int    `json:"id"`
+	CoCitizenId string `json:"co_citizen_id"`
+	CoEmail     string `json:"co_email"`
+	CoFname     string `json:"co_fname"`
+	CoLname     string `json:"co_lname"`
+	Co_Line_id  string `json:"co_line_id"`
+	CoGender    string `json:"co_gender"`
+	CoBirthdate string `json:"co_birthdate"`
+	CoAddress   string `json:"co_address"`
+	CoTel       string `json:"co_tel"`
+	CoDistrict  string `json:"co_district"`
+	CoProvince  string `json:"co_province"`
+	CoAmphoe    string `json:"co_amphoe"`
+	CoZipcode   string `json:"co_zipcode"`
 }

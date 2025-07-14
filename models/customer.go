@@ -1106,7 +1106,7 @@ func GetCustomerOnlinesByIdTest(customerId int, objQuery *structs.ObjGetCustomer
 	// query = query.Select("customers.*, customer_groups.cg_name, ref_right_treatments.rt_code, ref_right_treatments.rt_name")
 	// query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id")
 
-	query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id,customer_onlines.co_gender,ustomer_onlines.co_birthdate,customer_onlines.co_address,customer_onlines.co_tel,customer_onlines.co_district,customer_onlines.co_province,customer_onlines.co_amphoe,customer_onlines.co_zipcode")
+	query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id,customer_onlines.co_gender,customer_onlines.co_birthdate,customer_onlines.co_address,customer_onlines.co_tel,customer_onlines.co_district,customer_onlines.co_province,customer_onlines.co_amphoe,customer_onlines.co_zipcode")
 	query = query.Where("customer_onlines.id = ?", customerId)
 	query = query.Find(&objQuery)
 	if query.Error != nil {
