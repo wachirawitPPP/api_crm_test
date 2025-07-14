@@ -3025,10 +3025,9 @@ func TestChecklineid(c *gin.Context) {
 		"data":    responseData,
 	})
 
-	c.JSON(200, gin.H{
-		"status":  true,
-		"message": "",
-		"data":    payload,
-	})
+	// c.JSON(200, gin.H{
+	// 	"status":  true,
+	// 	"message": "",
+	// 	"data":    payload,
+	// })
 }
-
