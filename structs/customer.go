@@ -166,12 +166,12 @@ type ObjQueryCustomer struct {
 	RtNameEn   string `json:"rt_name_en"`
 }
 type ObjGetCustomerOnline struct {
-	ID            int    `json:"id"`
+	ID          int    `json:"id"`
 	CoCitizenId string `json:"co_citizen_id"`
-	CoEmail       string `json:"co_email"`
-	CoFname       string `json:"co_fname"`
-	CoLname       string `json:"co_lname"`
-	Co_Line_id    string `json:"co_line_id"`
+	CoEmail     string `json:"co_email"`
+	CoFname     string `json:"co_fname"`
+	CoLname     string `json:"co_lname"`
+	Co_Line_id  string `json:"co_line_id"`
 }
 
 type ObjQueryCheckImport struct {
@@ -832,4 +832,22 @@ type AppointmentListHistory struct {
 	ApCreate         string `json:"ap_create"`
 	ApUpdate         string `json:"ap_update"`
 	ShopName         string `json:"shop_name"`
+}
+
+// ---------------------- test ObjGetCustomerOnline-------------------------/-
+type ObjGetCustomerOnlineTest struct {
+	ID           int    `json:"id"`
+	CoCitizenId  string `json:"co_citizen_id"`
+	CoEmail      string `json:"co_email"`
+	CoFname      string `json:"co_fname"`
+	CoLname      string `json:"co_lname"`
+	Co_Line_id   string `json:"co_line_id"`
+	Co_Gender    string `json:"co_gender"`
+	Co_Birthdate string `json:"co_birthdate"`
+	Co_Address   string `json:"co_address"`
+	Co_Tel       string `json:"co_tel"`
+	Co_District  string `json:"co_district"`
+	Co_Province  string `json:"co_province"`
+	Co_Amphoe    string `json:"co_amphoe"`
+	Co_Zipcode   string `json:"co_zipcode"`
 }

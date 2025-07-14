@@ -17,7 +17,9 @@ func SetRouterCustomer(router *gin.Engine) {
 		r.POST("/history/lab", middlewares.CheckAccessToken, controllers.HistoryLab)                          //use
 		r.POST("/history/xray", middlewares.CheckAccessToken, controllers.HistoryXray)                        //use
 		r.POST("/history/document", middlewares.CheckAccessToken, controllers.HistoryDocument)                //use
-        r.GET("/co_profile", middlewares.CheckAccessToken, controllers.GetCustomerOnlineById)                                    //use
+		r.GET("/co_profile", middlewares.CheckAccessToken, controllers.GetCustomerOnlineById)                 //use
+
+		r.GET("/co_profile_test", middlewares.CheckAccessToken, controllers.GetCustomerOnlineByIdTest) // test
 	}
 	return
 }

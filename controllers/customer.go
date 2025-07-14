@@ -1244,3 +1244,42 @@ func HistoryDocument(c *gin.Context) { //use
 	}
 
 }
+
+// ------------------------------- test GetCustomerOnlineById------------------------------//
+
+func GetCustomerOnlineByIdTest(c *gin.Context) {
+	customerId := libs.StrToInt(c.Params.ByName("customerOnlineId"))
+	var objQueryCustomerOnline structs.ObjGetCustomerOnlineTest
+
+	errCustomer := models.GetCustomerOnlinesByIdTest(customerId, &objQueryCustomerOnline)
+	if errCustomer != nil {
+		c.AbortWithStatusJSON(http.StatusOK, gin.H{
+			"status":  false,
+			"message": "Get data error.",
+			"data":    "",
+		})
+		return
+	}
+
+	// Use citizen_id for internal check
+	isOnlineSync := objQueryCustomerOnline.CoCitizenId != ""
+
+	// Marshal to JSON and unmarshal to map
+	customerJSON, _ := json.Marshal(objQueryCustomerOnline)
+
+	// Convert to map[string]interface{} for filtering
+	var data map[string]interface{}
+	json.Unmarshal(customerJSON, &data)
+
+	// Remove citizen_id before returning
+	delete(data, "citizen_id")
+
+	// Add custom field
+	data["is_online_data_sync"] = isOnlineSync
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":  true,
+		"message": "Get data successful.",
+		"data":    data,
+	})
+}

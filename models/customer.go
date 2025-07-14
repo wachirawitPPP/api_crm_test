@@ -67,6 +67,8 @@ func GetCustomerById(customerId int, objQuery *structs.ObjQueryCustomer) error {
 func GetCustomerOnlinesById(customerId int, objQuery *structs.ObjGetCustomerOnline) error {
 	query := configs.DB1.Table("customer_onlines")
 	// query = query.Select("customers.*, customer_groups.cg_name, ref_right_treatments.rt_code, ref_right_treatments.rt_name")
+	// query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id")
+
 	query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id")
 	query = query.Where("customer_onlines.id = ?", customerId)
 	query = query.Find(&objQuery)
@@ -607,7 +609,7 @@ func AppointmentSearchByCustomer(filter structs.PayloadSearchAppointmentByCustom
 	if *filter.Is_active != "" {
 		query = query.Where("appointments.ap_status_id = ?", *filter.Is_active)
 	}
-	if *filter.Date_from != ""{
+	if *filter.Date_from != "" {
 		query = query.Where("appointments.ap_datetime >=?", *filter.Date_from)
 	}
 
@@ -1091,6 +1093,21 @@ func GetHistoryDocument(objPayload *structs.ObjPayloadPaginationHistory, objQuer
 	query = query.Offset(offset)
 	// pagination>
 	query = query.Order("medical_certs.mdc_create DESC")
+	query = query.Find(&objQuery)
+	if query.Error != nil {
+		return query.Error
+	}
+	return nil
+}
+
+// ----------------------- test GetCustomerOnlinesById ----------------------- //
+func GetCustomerOnlinesByIdTest(customerId int, objQuery *structs.ObjGetCustomerOnlineTest) error {
+	query := configs.DB1.Table("customer_onlines")
+	// query = query.Select("customers.*, customer_groups.cg_name, ref_right_treatments.rt_code, ref_right_treatments.rt_name")
+	// query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id")
+
+	query = query.Select("customer_onlines.co_fname, customer_onlines.co_lname,customer_onlines.id,customer_onlines.co_email,customer_onlines.co_line_id,customer_onlines.co_citizen_id,customer_onlines.co_gender,ustomer_onlines.co_birthdate,customer_onlines.co_address,customer_onlines.co_tel,customer_onlines.co_district,customer_onlines.co_province,customer_onlines.co_amphoe,customer_onlines.co_zipcode")
+	query = query.Where("customer_onlines.id = ?", customerId)
 	query = query.Find(&objQuery)
 	if query.Error != nil {
 		return query.Error

@@ -24,8 +24,8 @@ func SetRouterAuth(router *gin.Engine) {
 		auth.POST("onlinesync", middlewares.CheckAccessToken, controllers.Onlinesync)
 		auth.GET("onlineunsync", middlewares.CheckAccessToken, controllers.Onlineunsync)
 
-		  auth.POST("testchecklineid", middlewares.CheckPublicKey, controllers.TestChecklineid)
-  auth.POST("removeaccountsyncwithmail", middlewares.CheckPublicKey, controllers.RemoveSyncAccountWithLine)
+		auth.POST("testchecklineid", middlewares.CheckPublicKey, controllers.TestChecklineid)
+		auth.POST("removeaccountsyncwithmail", middlewares.CheckPublicKey, controllers.RemoveSyncAccountWithLine)
 
 		// Exa med
 		auth.POST("registerexa", middlewares.CheckPublicKey, controllers.RegisterExa)
@@ -40,12 +40,10 @@ func SetRouterAuth(router *gin.Engine) {
 		auth.POST("otponlinesyncexa-lock", middlewares.CheckAccessToken, controllers.OtponlinesyncExaLockShop)
 		auth.POST("registerCid", middlewares.CheckPublicKey, controllers.RegisterBypassOTP)
 
-		
-
 		//Health Survey
 		auth.POST("checkhealthsurvey", middlewares.CheckPublicKey, controllers.HealthSurveyAuth)
 		auth.POST("otphealthsurvey", middlewares.CheckPublicKey, controllers.OtpHealthSurvey)
-		
+
 		// auth.POST("callback", middlewares.CheckPublicKey, controllers.Oauth)
 	}
 	return
